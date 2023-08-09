@@ -1,0 +1,99 @@
+<html>
+        <body><!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  </head>
+  <body>
+<h1> Rock, Paper, Scissors </h1>
+<br>
+<button class="btn btn-primary" onclick="play('Rock')">Rock </button>
+<button class="btn btn-primary" onclick="play('Paper')">Paper </button>
+<button class="btn btn-primary" onclick="play('Scissors')">Scissors </button>
+<br>
+<br>
+<h3 id="user-choice">User's Choice </h3>
+<br>
+<img width="100px" src="" id="user-choice-image">
+<br>
+<h3  id="computer-choice">Computer's choice</h3>
+<br>
+<img width="100px" src="" id="computer-choice-image">
+<br>
+<h2 id="result"> </h2>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
+</html>
+</body>
+        <style></style>
+        <script>let rock_image = "https://th.bing.com/th/id/R.d6ce86f4d3b9b84938540364cf377f14?rik=Ux0ZXAPfRev06w&riu=http%3a%2f%2fclipart-library.com%2fimg%2f1603206.png&ehk=RDk3bMLyUpjsC7KgjlOITV%2bt5%2fU5IQNbGUfNsRFDa7I%3d&risl=&pid=ImgRaw&r=0"
+
+let paper_image = "https://clipartix.com/wp-content/uploads/2016/04/Paper-clip-art-free-free-clipart-images.png"
+
+let scissors_image = "https://th.bing.com/th/id/R.e842547a42246015e916b6c875cae6e7?rik=8FHTMmNiVhuzMg&riu=http%3a%2f%2fwww.clipartbest.com%2fcliparts%2fKTn%2fXj6%2fKTnXj6Mgc.png&ehk=hd90G7qbVvvZfkvGEwDYS21tGZFoxTptSSTVir3DM8o%3d&risl=&pid=ImgRaw&r=0"
+
+function play(userChoice){
+    document.getElementById("user-choice").innerText = userChoice
+    let choices = ['Rock' , 'Paper' ,'Scissors']
+    let randomChoice = Math.random() * 10
+    randomChoice = Math.floor(randomChoice)
+    randomChoice = randomChoice%3
+    let computerChoice = choices[randomChoice]
+    document.getElementById('computer-choice').innerText = computerChoice
+
+    console.log(computerChoice)
+    console.log(userChoice)
+    console.log(computerChoice==userChoice)
+
+    
+
+    if (userChoice == computerChoice){
+        document.getElementById("result").innerText = 'Draw. Play again.'
+        if (userChoice == "Rock"){
+             document.getElementById("user-choice-image").src = rock_image 
+             document.getElementById("computer-choice-image").src = rock_image
+        }
+        else if(userChoice == "Paper"){
+            document.getElementById("user-choice-image").src = paper_image
+            document.getElementById("computer-choice-image").src = paper_image}
+        else{
+            document.getElementById("user-choice-image").src = scissors_image
+            document.getElementById("computer-choice-image").src = scissors_image}
+        }
+    if ( userChoice == "Rock" && computerChoice == "Paper"){
+        document.getElementById("result").innerText = 'User has lost!'
+        document.getElementById("user-choice-image").src = rock_image
+        document.getElementById("computer-choice-image").src = paper_image
+    }
+   else  if ( userChoice == "Rock" && computerChoice == "Scissors"){
+        document.getElementById("result").innerText = 'User has won!'
+         document.getElementById("user-choice-image").src = rock_image
+         document.getElementById("computer-choice-image").src = scissors_image
+    }
+    else if ( userChoice == "Paper" && computerChoice == "Rock"){
+        document.getElementById("result").innerText = 'User has won!'
+        document.getElementById("user-choice-image").src = paper_image
+        document.getElementById("computer-choice-image").src = rock_image
+    }
+    else if ( userChoice == "Paper" && computerChoice == "Scissors"){
+        document.getElementById("result").innerText = 'User has lost!'
+         document.getElementById("user-choice-image").src = paper_image
+         document.getElementById("computer-choice-image").src = scissors_image
+    }
+    else if ( userChoice == "Scissors" && computerChoice == "Rock"){
+        document.getElementById("result").innerText = 'User has lost!'
+        document.getElementById("user-choice-image").src = scissors_image
+        document.getElementById("computer-choice-image").src = rock_image
+    }
+    else if ( userChoice == "Scissors" && computerChoice == "Paper"){
+        document.getElementById("result").innerText = 'User has won!'
+        document.getElementById("user-choice-image").src = scissors_image
+         document.getElementById("computer-choice-image").src = paper_image
+    }
+    else{
+        document.getElementById("result").innerText = 'Draw. Play again.'
+    }
+}</script>
+      </html>
